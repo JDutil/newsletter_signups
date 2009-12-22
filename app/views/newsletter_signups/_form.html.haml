@@ -1,0 +1,7 @@
+#newsletter_signup_form
+  - form_for (newsletter_signup ? newsletter_signup : NewsletterSignup.new) do |f|
+    %h3 Sign Up For Our Newsletter!
+    %p
+      To be notified when we are ready to launch, and receive a Beta Invite.
+    = text_field :newsletter_signup, :email, :value=>"Enter Your Email Address", :onclick => "this.value='';"
+    = f.submit "Subscribe"

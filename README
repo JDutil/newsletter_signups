@@ -1,0 +1,6 @@
+Newsletter-signup
+=================
+
+Simple plugin that adds newsletter signup form helpers, and adds model to track subscriptions.
+
+Copyright (c) 2009 Jeff Dutil, released under the MIT license
