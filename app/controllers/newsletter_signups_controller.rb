@@ -33,12 +33,12 @@ class NewsletterSignupsController < ApplicationController
 
     respond_to do |format|
       if @NewsletterSignup.save
-        add_message 'NewsletterSignup was successfully created.'
-        format.html { redirect_to(@NewsletterSignup.object) }
+        add_message 'You have Successfully subscribed to the newsletter.'
+        format.html { redirect_to :back }
         format.xml  { render :xml => @NewsletterSignup, :status => :created, :location => @NewsletterSignup }
       else
-        add_error "The email you provided has either already been subscribed or is invalid."
-        format.html { render :action => "new" }
+        add_error "The email you provided is invalid or has already been subscribed."
+        format.html { redirect_to :back }
         format.xml  { render :xml => @NewsletterSignup.errors, :status => :unprocessable_entity }
       end
     end
@@ -73,18 +73,4 @@ class NewsletterSignupsController < ApplicationController
     end
   end
   
-  protected
-    
-    def deliver_confirmation
-      begin
-	      @link = newsletter_confirm_url(@NewsletterSignup.link)
-	      Mailer.deliver_newsletter_confirm(
-	        @NewsletterSignup.email,
-	        "DontReply@SearchBurlington.com",
-	        @link
-	      )
-      rescue
-        add_error "There was an error delivering your confirmation email."
-      end
-    end
 end

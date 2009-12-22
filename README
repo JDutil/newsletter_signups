@@ -3,4 +3,7 @@ Newsletter-signup
 
 Simple plugin that adds newsletter signup form helpers, and adds model to track subscriptions.
 
+TODO:
+Rake task to copy migration and run rake db:migrate
+
 Copyright (c) 2009 Jeff Dutil, released under the MIT license
