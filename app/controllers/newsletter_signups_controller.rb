@@ -1,4 +1,5 @@
 class NewsletterSignupsController < ApplicationController
+  before_filter :authorize_admin, :only=>:index
   # GET /newsletter_signups
   # GET /newsletter_signups.xml
   def index
@@ -7,8 +8,11 @@ class NewsletterSignupsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @newsletter_signups }
+      format.csv { send_data @newsletter_signups.to_csv } #TODO:document .to_csv requirement
     end
   end
+  
+
 
   # GET /newsletter_signups/new
   # GET /newsletter_signups/new.xml
@@ -72,5 +76,14 @@ class NewsletterSignupsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  protected
+    def authorize_admin
+      if current_user.try(:admin)
+        return true
+      else
+        redirect_to root_path and return false
+      end
+    end
   
 end
