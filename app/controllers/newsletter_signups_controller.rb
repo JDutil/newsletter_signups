@@ -8,7 +8,6 @@ class NewsletterSignupsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @newsletter_signups }
-      format.csv { send_data @newsletter_signups.to_csv } #TODO:document .to_csv requirement
     end
   end
   

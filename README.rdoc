@@ -4,21 +4,18 @@ Simple plugin that adds newsletter signups to a Rails app.
 
 == Usage
 
-  To get a .csv report of the subscribers visit /newsletter_signups.csv i.e. http://example.com/newsletter_signups.csv
-  
-  Note: To get an export file of the signups the plugin currently assumes you call you authorize your users permissions with current_user.admin
-  
 == Dependencies
 
-  sudo gem install fastercsv
-  ./script/plugin install git://github.com/arydjmal/to_csv.git
-
 == Install
-  
-  ./script/plugin install git://github.com/jdutil/newsletter_signups.git
+
+In your `Gemfile`:
+
+  gem 'newsletter_signups'
 
 == TODO
 
-  Rake task to copy migration and run rake db:migrate
+* Generator to copy migration and run rake db:migrate
+* Documentation
+* Test coverage
 
-Copyright (c) 2009 Jeff Dutil, released under the MIT license
+Copyright (c) 2009-2011 Jeff Dutil, released under the MIT license.

@@ -1,3 +1,3 @@
-ActionController::Routing::Routes.draw do |map|
-  map.resources :newsletter_signups
+Rails.application.routes.draw do |map|
+  resources :newsletter_signups
 end
